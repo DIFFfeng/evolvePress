@@ -23,7 +23,7 @@ head:
 # 雷军与张一鸣带来的认知进化
 
 
-![图片展示](../public/inspire/temp.jpg)
+<!-- ![图片展示](../public/inspire/temp.jpg) -->
 
 
 
