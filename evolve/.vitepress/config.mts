@@ -98,13 +98,13 @@ export default defineConfig({
     // },
 
     //上次更新时间
-    lastUpdated: {
+    /* lastUpdated: {
       text: "最后更新于",
       formatOptions: {
         dateStyle: "short", // 可选值full、long、medium、short
         timeStyle: "medium", // 可选值full、long、medium、short
       },
-    },
+    }, */
 
     //自定义上下页名
     docFooter: {
