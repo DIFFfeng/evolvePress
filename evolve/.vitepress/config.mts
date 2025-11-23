@@ -1,0 +1,142 @@
+import { defineConfig } from "vitepress";
+import { devDependencies } from "../../package.json"; // 读取package.json中的版本号，导入到导航处
+// https://vitepress.dev/reference/site-config
+export default defineConfig({
+  title: "Bit Horizon",
+  description: "A Vitepress Site description",
+
+  // #region 主题配置
+  themeConfig: {
+    // https://vitepress.dev/reference/default-theme-config
+    // 参考文档：https://vitepress.yiov.top/page 这按照顺序编写配置
+    nav: [
+      { text: "Home", link: "/" },
+      // 下拉式菜单导航一
+      {
+        text: "比特视界 - 启发",
+        items: [
+          { text:"BitEagle 成长里程碑",link:"/inspire/guide"},
+          {
+            items: [
+              {
+                text: "雷军与张一鸣 -- 认知进化",
+                // link: "https://vitepress.yiov.top/page#%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95",
+                // noIcon: true,
+                link:"inspire/Entrepreneur-survey"
+              },
+            ],
+          },
+        ],
+      },
+
+      // 其中的 `replace` 是将版本前的 `^` ，替换成了空白字符
+      // { text: `VitePress ${ devDependencies.vitepress.replace('^','') }`, link: 'https://vitepress.dev/zh/', noIcon: true },
+      {
+        text: `VitePress ${devDependencies.vitepress.replace("^", "")}`,
+        link: "https://github.com/vuejs/vitepress/blob/main/CHANGELOG.md",
+        noIcon: true,
+      },
+    ],
+
+    // todo  侧边栏设置
+    sidebar: [
+      {
+        text: "创业者调研",
+        items: [
+          { text:"BitEagle 成长站点说明",link:"/inspire/guide"},
+          { text: "雷军与张一鸣 -- 认知进化", link: "/inspire/Entrepreneur-survey" },
+        ],
+      },
+    ],
+
+    //社交链接
+    /* 可以看到vitepress自带的社交图标 ： node_modules\vitepress\types\default-theme.d.ts */
+    /* socialLinks: [
+      { icon: "github", link: "https://github.com/vuejs/vitepress" },
+      { icon: "twitter", link: "https://twitter.com/" },
+      { icon: "discord", link: "https://chat.vitejs.dev/" },
+      // 自定义社交链接，这用阿里 iconfont 图标库 svg 举例
+      {
+        icon: {
+          svg: '<svg t="1703483542872" class="icon" viewBox="0 0 1309 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6274" width="200" height="200"><path d="M1147.26896 912.681417l34.90165 111.318583-127.165111-66.823891a604.787313 604.787313 0 0 1-139.082747 22.263717c-220.607239 0-394.296969-144.615936-394.296969-322.758409s173.526026-322.889372 394.296969-322.889372C1124.219465 333.661082 1309.630388 478.669907 1309.630388 656.550454c0 100.284947-69.344929 189.143369-162.361428 256.130963zM788.070086 511.869037a49.11114 49.11114 0 0 0-46.360916 44.494692 48.783732 48.783732 0 0 0 46.360916 44.494693 52.090549 52.090549 0 0 0 57.983885-44.494693 52.385216 52.385216 0 0 0-57.983885-44.494692z m254.985036 0a48.881954 48.881954 0 0 0-46.09899 44.494692 48.620028 48.620028 0 0 0 46.09899 44.494693 52.385216 52.385216 0 0 0 57.983886-44.494693 52.58166 52.58166 0 0 0-57.951145-44.494692z m-550.568615 150.018161a318.567592 318.567592 0 0 0 14.307712 93.212943c-14.307712 1.080445-28.746387 1.768001-43.283284 1.768001a827.293516 827.293516 0 0 1-162.394168-22.296458l-162.001279 77.955749 46.328175-133.811485C69.410411 600.858422 0 500.507993 0 378.38496 0 166.683208 208.689602 0 463.510935 0c227.908428 0 427.594322 133.18941 467.701752 312.379588a427.463358 427.463358 0 0 0-44.625655-2.619261c-220.24709 0-394.100524 157.74498-394.100525 352.126871zM312.90344 189.143369a64.270111 64.270111 0 0 0-69.803299 55.659291 64.532037 64.532037 0 0 0 69.803299 55.659292 53.694846 53.694846 0 0 0 57.852923-55.659292 53.465661 53.465661 0 0 0-57.852923-55.659291z m324.428188 0a64.040926 64.040926 0 0 0-69.574114 55.659291 64.302852 64.302852 0 0 0 69.574114 55.659292 53.694846 53.694846 0 0 0 57.951145-55.659292 53.465661 53.465661 0 0 0-57.951145-55.659291z" p-id="6275"></path></svg>',
+        },
+        link: "https://weixin.qq.com/",
+        // You can include a custom label for accessibility too (optional but recommended):
+        ariaLabel: "wechat",
+      },
+    ], */
+
+    // siteTitle: false, //标题隐藏。填写字符串文字就覆盖站点标题
+    logo: "/bitEagle-Logo.ico", // 左上角logo
+
+    //手机端深浅模式的文字修改
+    darkModeSwitchLabel: "深浅模式",
+    //侧边栏文字更改(移动端)
+    sidebarMenuLabel: "目录",
+    //返回顶部文字修改
+    returnToTopLabel: "返回顶部",
+
+    //本地搜索 => 得益于 minisearch，VitePress 支持使用浏览器内索引进行模糊全文搜索
+    // todo Algolia 配置文档：https://vitepress.yiov.top/docsearch
+    search: {
+      provider: "local",
+    },
+
+    //页脚
+    footer: {
+      message: "构建于 BitEagle 愿景之上的个人成长里程",
+      copyright:
+        'Copyright © 2025',
+      // 'Copyright © 2025 备案号：<a href="https://beian.miit.gov.cn/" target="_blank">京****号</a>',
+      //copyright: `Copyright © 2019-${new Date().getFullYear()} present Evan You`,
+    },
+
+    //编辑本页
+    // editLink: {
+    //   pattern: "https://github.com/vuejs/vitepress/edit/main/docs/:path", // 改成自己的仓库
+    //   text: "在GitHub编辑本页",
+    // },
+
+    //上次更新时间
+    lastUpdated: {
+      text: "最后更新于",
+      formatOptions: {
+        dateStyle: "short", // 可选值full、long、medium、short
+        timeStyle: "medium", // 可选值full、long、medium、short
+      },
+    },
+
+    //自定义上下页名
+    docFooter: {
+      prev: "上一页",
+      next: "下一页",
+    },
+
+    // VitePress 内置了对 Carbon 广告 的原生支持 => https://www.carbonads.net/
+    carbonAds: {
+      code: "your-carbon-code",
+      placement: "your-carbon-placement",
+    },
+  },
+  // #endregion themeConfig主题配置
+
+  //fav图标
+  head: [["link", { rel: "icon", href: "/bitEagle-Logo.ico" }]],
+
+  // 默认启用深色模式，开启转换   false 关闭， force-dark 强制黑色模式
+  appearance: "dark",
+
+  // 站点地图
+  /* sitemap: {
+    hostname: 'http://127.0.0.1:5173',
+  } */
+
+  lastUpdated: true, //首次配置不会立即生效，需git提交后爬取时间戳
+
+  markdown: {
+    lineNumbers: true, // 代码行号
+    image: {
+      lazyLoading: true, //图片懒加载
+    },
+  },
+});
